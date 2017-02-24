@@ -15,9 +15,41 @@ import com.victornieto.model.Calculator;
 @RequestMapping("/api/v1/calculator")
 public class CalculatorController {
 
-	 private static final String PATTERN = "^-?+d+.?+d*$";
+	 private static final String PATTERN = "^-?+\\d+.?+\\d*$";
 
-	    @RequestMapping("/power")
+	    @RequestMapping("/add")
+	    public Calculator add(@RequestParam(value = "oper1") String a, @RequestParam(value = "oper2") String b) {
+	    	List<String> input = new ArrayList();
+	    	input.add(a);
+	    	input.add(b);
+	    	List<String> output = new ArrayList();
+	    	String addValue = "" ;
+	    	if (a != null && b != null && a.matches(PATTERN) && b.matches(PATTERN)) {
+	            addValue = String.valueOf(Double.valueOf(a) + Double.valueOf(b));
+	        } else {
+	            addValue = "Base or/and Exponent is/are not set to numeric value.";
+	        }
+	    	output.add(addValue);
+	    	return new Calculator(input, output, "add") ;
+	    }
+
+	    @RequestMapping("/sub")
+	    public Calculator sub(@RequestParam(value = "oper1") String a, @RequestParam(value = "oper2") String b) {
+	    	List<String> input = new ArrayList();
+	    	input.add(a);
+	    	input.add(b);
+	    	List<String> output = new ArrayList();
+	    	String addValue = "" ;
+	    	if (a != null && b != null && a.matches(PATTERN) && b.matches(PATTERN)) {
+	            addValue = String.valueOf(Double.valueOf(a) + Double.valueOf(b));
+	        } else {
+	            addValue = "Base or/and Exponent is/are not set to numeric value.";
+	        }
+	    	output.add(addValue);
+	    	return new Calculator(input, output, "sub") ;
+	    }
+
+	 	@RequestMapping("/power")
 	    public Calculator pow(@RequestParam(value = "base") String b, @RequestParam(value = "exponent") String e) {
 	        List<String> input = new ArrayList();
 	        input.add(b);
