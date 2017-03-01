@@ -10,7 +10,8 @@ import com.victornieto.model.User;
 @RepositoryRestResource(collectionResourceRel = "user", path = "api/v1/user")
 public interface UserRepository extends MongoRepository<User, String>{
 
-	User findByNombre(String nombre);
+	List<User> findByNombre(String nombre);
 	List<User> findByApellido(String apellido);
+	User findById(String id);
 
 }

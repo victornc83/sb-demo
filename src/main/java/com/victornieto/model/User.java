@@ -13,8 +13,4 @@ public class User {
 	private String apellido ;
 	private String password ;
 
-	public User(String nombre, String pass) {
-		this.nombre = nombre ;
-		this.password = pass ;
-	}
 }

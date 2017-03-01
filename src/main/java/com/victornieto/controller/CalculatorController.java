@@ -41,7 +41,7 @@ public class CalculatorController {
 	    	List<String> output = new ArrayList();
 	    	String addValue = "" ;
 	    	if (a != null && b != null && a.matches(PATTERN) && b.matches(PATTERN)) {
-	            addValue = String.valueOf(Double.valueOf(a) + Double.valueOf(b));
+	            addValue = String.valueOf(Double.valueOf(a) - Double.valueOf(b));
 	        } else {
 	            addValue = "Base or/and Exponent is/are not set to numeric value.";
 	        }
